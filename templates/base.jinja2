@@ -1,0 +1,47 @@
+{% set js_libs = ("jquery.min.js",
+                  "jquery-ui.min.js",
+                  "moment.min.js",
+                  "jquery.keyboard.min.js",
+                  "signin.js"
+                  ) %}
+<!DOCTYPE html>
+<html>
+  <head>
+   {% block head %}
+
+      <meta http-equiv="X-UA-Compatible" content="IE=10" />
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <script>
+      document.basepath = "{{ url_for("index", _external=True) }}";
+      </script>
+      {% for library in js_libs %}
+       <script type='text/javascript' src='{{url_for('static', filename='js/'+library)}}'></script>
+      {% endfor %}
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery-ui.css') }}" />
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/keyboard.css') }}" />
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css' ) }}" />
+    {% for sheet in local_stylesheets %}
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/' + sheet) }}" />
+    {% endfor %}
+    {% block extra_headers %}
+    {% endblock %}
+    <title>{% block title %}{{application_name}}{% endblock %}</title>
+    <style>
+    {% block extra_styles %}
+    {% endblock %}
+    </style>
+    {% endblock %}
+  </head>
+  <body>
+    <div id=pageheader>
+      {% block pageheader %}{% endblock %}
+    </div>
+    </div>
+    <div id=content>
+    {% block  content %}{% endblock %}
+    </div>
+    <div id=footer>
+      {% block footer %}{% endblock %}
+    </div>
+  </body>
+</html>

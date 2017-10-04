@@ -1,0 +1,50 @@
+{% extends "base.jinja2" %}
+
+{% block extra_headers %}
+ <script>
+ document.use_osk = {{use_osk and 'true' or 'false'}};
+ document.use_appts = {{config.APPOINTMENT_TIMES and 'true' or 'false'}};
+ </script>
+{% endblock %}
+
+{% block pageheader %}
+ <h1>Welcome to {{config.SIGNIN_PAGE.office_name}}</h1>
+{% endblock %}
+
+{% block content %}
+
+ <div id=form_container>
+  <form method="POST", action="{{url_for("post", callback="sign_in")}}" id="signin_form">
+   <h2>{{config.SIGNIN_PAGE.info_note}}</h2>
+   <p class=error id="error_output"></p>
+   <ul>
+    <li><input name="name" type="text" placeholder="{{use_osk and "Touch the screen here to e" or "E"}}nter your name..." autocomplete=off required data-fname="Your Name" /></li>
+    {% if config.APPOINTMENT_TIMES %}
+     <li>{{config.SIGNIN_PAGE.appointment_instructions}}
+      <ul>
+       <li class="radio selected"> <label for=no_appt><input checked type="radio" name="has_appointment" value=0 id="no_appt"><br/>I do not have an appointment (walk-in).</label></li>
+        <li class=radio><label for=yes_appt><input type="radio" name="has_appointment" value=1 id="yes_appt">I have an appointment at:
+         <SELECT name="appointment_time" required disabled data-fname="Appointment Time">
+          {% for time in config.APPOINTMENT_TIMES or [] %}
+           <option value="{{time}}">{{time}}</option>
+          {% endfor %}
+         </SELECT>
+        </label>
+        </li>
+      </ul>
+     </li>
+     <li><button name='submit' id='submit'>Sign In</button></li>
+    {% endif %}
+   </ul>
+  </form>
+
+
+ </div>
+ <div id=results style='display:none'>
+ </div>
+
+{% endblock %}
+
+{% block footer %}
+ <h1>{{config.ORGANIZATION}}</h1>
+{% endblock %}

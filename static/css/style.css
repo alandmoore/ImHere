@@ -1,0 +1,169 @@
+BODY{
+    background-color: #2F547E;
+    margin: 0;
+    padding: 0;
+    font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
+    font-size: 18pt;
+}
+
+#content{
+    background-color: white;
+    background: -webkit-linear-gradient(top, lightblue 0%, white 100%);
+    background: -moz-linear-gradient(top, lightblue 0%, white 100%);
+    padding: 1.2em;
+    width: 90%;
+    border: 4px double navy;
+    border-radius: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+}
+
+H1 {
+    text-align: center;
+    color: white;
+    text-shadow: 0 0 2px black;
+    text-variant: small-caps;
+    margin: 0 0 2em 0;
+    font-size: 1.4em;
+}
+
+H2 {
+    font-weight: normal;
+    font-size: 1.2em;
+}
+
+.note {
+    font-size: .9em;
+    color: grey;
+}
+
+FORM {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    padding: .5em 1em;
+    margin-bottom: 0;
+}
+
+FORM OL LI{
+    margin-bottom: 1em;
+}
+
+FORM UL{
+    list-style: none;
+}
+
+FORM UL LI{
+    line-height: 3em;
+}
+
+FORM UL LI.radio {
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 1em;
+    background-color: lightblue;
+    border-color: navy;
+    padding: .25em;
+    color: grey;
+    margin: .5em 0;
+    height: 3em;
+    text-align: center;
+}
+
+FORM UL LI.radio LABEL {
+    line-height: 100%;
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+FORM UL LI.radio.selected {
+    border-color: green;
+    background-color: lightgreen;
+    color: black;
+}
+
+INPUT[type=text]{
+    width: 98%;
+    height: 1.2em;
+    font-size: 1.2em;
+}
+INPUT[type=radio]{
+    display: none;
+}
+
+.ui-selectmenu-button{
+    vertical-align: middle;
+}
+
+INPUT.highlighted{
+    background-color: pink;
+}
+
+P.error{
+    color: darkred;
+}
+
+
+DIV.ui-keyboard{
+   padding: 0;
+   width: 98%;
+   position: relative;
+   top: 0!important;
+   left: 0!important;
+   font-size: 1.2em;
+}
+
+button.ui-keyboard-accept.ui-keyboard-invalid-input{
+   background-color: #888;
+   color: #AAA;
+   border-color: #333;
+}
+
+/*****************/
+/* The View page */
+/*****************/
+
+#waiting_customers{
+    width: 100%;
+
+}
+
+#waiting_customers TH{
+    border-bottom: 1px dashed grey;
+    text-align: left;
+}
+
+#waiting_customers TD{
+    padding: .25em;
+}
+
+#waiting_customers TD.message{
+    color: darkgreen;
+    text-align: center;
+}
+
+#username_display #change_username,
+#waiting_customers BUTTON.unclaim
+{
+    visibility: hidden;
+    margin: 0px;
+}
+
+#username_display:hover #change_username,
+#waiting_customers .claim_data:hover .unclaim{
+    visibility: visible;
+}
+
+#username_display .ui-button,
+#username_entry_display .ui-button,
+#waiting_customers .ui-button{
+    font-size: .5em;
+    margin: 0px!important;
+}
+
+#csv_download {
+    float: right;
+    font-size: .5em;
+}

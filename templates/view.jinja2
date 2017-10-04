@@ -1,0 +1,23 @@
+{% extends "base.jinja2" %}
+
+{% block pageheader %}
+<h1>{{config.ORGANIZATION}} customer waiting list</h1>
+{% endblock %}
+
+{% block content %}
+  <button id="csv_download">Download Data</button>
+  <p>You are:
+    <span id="username_display"><span id="username"></span>
+      <button id="change_username">Change</button>
+    </span>
+    <span id="username_entry_display">
+      <input name="user_name" id="username_entry" placeholder="Enter your name..." /><button id="set_username">Set Name</button>
+    </span>
+  </p>
+  <h2>Waiting customers</h2>
+  <table id="waiting_customers" src="{{url_for("post", callback="list")}}">
+    <thead><th>Name</th><th>Waiting since</th><th>Claimed</th></thead>
+    <tbody></tbody>
+  </table>
+
+{% endblock %}
